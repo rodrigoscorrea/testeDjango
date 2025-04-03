@@ -1,0 +1,48 @@
+<div class="content" role="main">
+
+  <h1>Welcome to Peido Forte</h1>
+    <!-- <button (click)="Display()">Chama na bota!</button> -->
+
+    <div>
+      <a routerLink="/login">Login</a>
+      <a routerLink="/register">Register</a>
+    </div>
+
+    <div *ngIf="authService.isAuthenticated()">OI logado
+      <button (click)="logout()">Logout</button>
+    </div>
+    
+    <div *ngIf="!authService.isAuthenticated()">
+      <!-- Your login form or login page redirect -->
+      Not logged in
+    </div>
+    
+    <div *ngIf="authService.isAuthenticated()">
+      <ul>
+        Aqui as informações do usuário logado:
+        <li><span>Nome: {{user? user.name: ''}}  ||  Email: {{user? user.email: ''}}</span></li>
+      </ul>
+    </div>
+
+    <!-- Campo de input para CPF -->
+    <!-- <label for="cpf">Digite o CPF:</label>
+    <input id="cpf" [(ngModel)]="cpf" placeholder="Digite o CPF"> -->
+
+    <!-- Botão para buscar o usuário -->
+    <!-- <button (click)="searchUser()">Buscar Usuário</button> -->
+
+    <!-- Exibir os resultados -->
+    <!-- <div *ngIf="foundUser">
+      <h2>Usuário encontrado:</h2>
+      <p>Nome: {{ foundUser.usuarios.nome }}</p>
+      <p>Idade: {{ foundUser.usuarios.idade }}</p>
+      <p>CPF: {{ foundUser.usuarios.cpf }}</p>
+    </div> -->
+
+    <!-- <div *ngIf="errorMessage">
+      <p style="color: red;">{{ errorMessage }}</p>
+    </div> -->
+  
+</div>
+
+<router-outlet></router-outlet>
