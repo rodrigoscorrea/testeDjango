@@ -7,6 +7,8 @@ WORKDIR /app
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
+RUN npm install -g @angular/cli@16
+
 # Install dependencies
 RUN npm install
 
@@ -17,4 +19,4 @@ COPY . .
 EXPOSE 4200
 
 # Start Angular
-CMD ["npm start"]
+CMD ["ng" , "serve", "--host", "0.0.0.0"]

@@ -44,9 +44,10 @@ services:
   angular:
     build: ./frontend/
     container_name: angular_frontend
-    command: npm start -- --host 0.0.0.0
+    command: bash -c "npm install && ng serve --host 0.0.0.0"
     volumes:
       - ./frontend:/app
+      - /app/node_modules
     ports:
       - "4200:4200"
     networks:
